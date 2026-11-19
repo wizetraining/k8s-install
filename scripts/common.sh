@@ -220,6 +220,3 @@ systemctl status kubelet --no-pager
 
 ### verify containerd socket
 ls -l /run/containerd/containerd.sock
-
-### verify crictl can communicate with containerd
-crictl info

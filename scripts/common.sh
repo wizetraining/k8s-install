@@ -156,6 +156,10 @@ rm -rf bin containerd-2.4.0-linux-${PLATFORM}.tar.gz
 systemctl unmask containerd
 systemctl start containerd
 
+### install crictl
+VERSION="v1.37.0"
+ARCH="amd64"
+curl -sL "https://github.com/kubernetes-sigs/cri-tools/releases/download/${VERSION}/crictl-${VERSION}-linux-${ARCH}.tar.gz" | sudo tar -xzf - -C /usr/local/bin
 
 ### containerd
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf

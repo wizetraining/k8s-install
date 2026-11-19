@@ -4,7 +4,7 @@
 # --- CONFIGURATION DES VARIABLES ---
 CLUSTER_NAME = "Kubernetes Cluster"
 BOX = "bento/ubuntu-24.04"
-K8S_VERSION = "1.35.4-00"
+K8S_VERSION = "1.37.1-00"
 OS_VERSION  = "xUbuntu_24.04"
 
 CONTROL_IP  = "192.168.56.10"

@@ -24,7 +24,8 @@ vagrant up
 sudo apt update && sudo apt install -y curl bash-completion vim git
 
 # Installation de kubectl (dernière version stable)
-K8S_RELEASE=$(curl -Ls https://dl.k8s.io/release/stable.txt)
+# K8S_RELEASE=$(curl -Ls https://dl.k8s.io/release/stable.txt)
+K8S_RELEASE=v1.37.1
 curl -LO "https://dl.k8s.io/release/${K8S_RELEASE}/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
@@ -62,7 +63,7 @@ rm get_helm.sh # Nettoyage du script d'installation
 
 # Création du dossier de config et copie du fichier de configuration K8s
 mkdir -p ~/.kube
-cp ~/k8s-install/configs/config ~/.kube/config
+cp ${PWD}/configs/config ~/.kube/config
 chmod 600 ~/.kube/config
 
 # Vérification de la connexion au cluster
@@ -73,7 +74,7 @@ kubectl get nodes -o wide
 # ==============================================================================
 
 # Téléchargement de l'outil de diagnostic Longhorn (version AMD64 par défaut)
-curl -sSfL -o longhornctl https://github.com/longhorn/cli/releases/download/v1.11.1/longhornctl-linux-amd64
+curl -sSfL -o longhornctl https://github.com/longhorn/cli/releases/download/v1.12.2/longhornctl-linux-amd64
 chmod +x longhornctl
 
 # Vérification des prérequis système pour Longhorn

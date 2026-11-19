@@ -22,7 +22,7 @@ sudo chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config
 
 # etcdctl
 
-ETCDCTL_VERSION=v3.5.13
+ETCDCTL_VERSION=v3.7.1
 ETCDCTL_ARCH=$(dpkg --print-architecture)
 ETCDCTL_VERSION_FULL=etcd-${ETCDCTL_VERSION}-linux-${ETCDCTL_ARCH}
 wget https://github.com/etcd-io/etcd/releases/download/${ETCDCTL_VERSION}/${ETCDCTL_VERSION_FULL}.tar.gz
@@ -55,7 +55,7 @@ chmod 700 get_helm.sh
 ./get_helm.sh
 
 helm repo add cilium https://helm.cilium.io/
-helm install cilium cilium/cilium --version 1.19.3 --namespace kube-system 
+helm install cilium cilium/cilium --version 1.20.5 --namespace kube-system 
 echo "Waiting for Cilium to be ready..."
 sleep 10
 kubectl -n kube-system wait --for=condition=Ready pod -l name=cilium-envoy --timeout=3600s

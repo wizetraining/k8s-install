@@ -24,7 +24,7 @@ helm repo update
 
 # Install Longhorn in the longhorn-system namespace.
 
-helm install longhorn longhorn/longhorn --namespace longhorn-system --create-namespace --version 1.11.1
+helm install longhorn longhorn/longhorn --namespace longhorn-system --create-namespace --version 1.12.2
 
 # To confirm that the deployment succeeded, run:
 
